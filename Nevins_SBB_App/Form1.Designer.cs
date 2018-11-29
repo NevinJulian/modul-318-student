@@ -31,15 +31,18 @@
             this.lblvon = new System.Windows.Forms.Label();
             this.tabortsuchen = new System.Windows.Forms.TabControl();
             this.tabverbindungsuchen = new System.Windows.Forms.TabPage();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtTime = new System.Windows.Forms.RichTextBox();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.btnsearchconnection = new System.Windows.Forms.Button();
             this.txtconnectionto = new System.Windows.Forms.RichTextBox();
             this.lblconnectionto = new System.Windows.Forms.Label();
             this.txtconnectionfrom = new System.Windows.Forms.RichTextBox();
             this.lblconnectionfrom = new System.Windows.Forms.Label();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.bntcreatelist = new System.Windows.Forms.Button();
             this.txtplacefrom = new System.Windows.Forms.RichTextBox();
             this.lblplacefrom = new System.Windows.Forms.Label();
-            this.bntcreatelist = new System.Windows.Forms.Button();
             this.tabortsuchen.SuspendLayout();
             this.tabverbindungsuchen.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -60,11 +63,14 @@
             this.tabortsuchen.Location = new System.Drawing.Point(12, 12);
             this.tabortsuchen.Name = "tabortsuchen";
             this.tabortsuchen.SelectedIndex = 0;
-            this.tabortsuchen.Size = new System.Drawing.Size(950, 428);
+            this.tabortsuchen.Size = new System.Drawing.Size(950, 326);
             this.tabortsuchen.TabIndex = 1;
             // 
             // tabverbindungsuchen
             // 
+            this.tabverbindungsuchen.Controls.Add(this.textBox1);
+            this.tabverbindungsuchen.Controls.Add(this.txtTime);
+            this.tabverbindungsuchen.Controls.Add(this.dateTimePicker1);
             this.tabverbindungsuchen.Controls.Add(this.btnsearchconnection);
             this.tabverbindungsuchen.Controls.Add(this.txtconnectionto);
             this.tabverbindungsuchen.Controls.Add(this.lblconnectionto);
@@ -73,10 +79,37 @@
             this.tabverbindungsuchen.Location = new System.Drawing.Point(8, 39);
             this.tabverbindungsuchen.Name = "tabverbindungsuchen";
             this.tabverbindungsuchen.Padding = new System.Windows.Forms.Padding(3);
-            this.tabverbindungsuchen.Size = new System.Drawing.Size(934, 381);
+            this.tabverbindungsuchen.Size = new System.Drawing.Size(934, 279);
             this.tabverbindungsuchen.TabIndex = 0;
             this.tabverbindungsuchen.Text = "Verbindung suchen";
             this.tabverbindungsuchen.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            this.textBox1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.textBox1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.textBox1.Location = new System.Drawing.Point(481, 51);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(196, 31);
+            this.textBox1.TabIndex = 7;
+            this.textBox1.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox1_KeyUp);
+            // 
+            // txtTime
+            // 
+            this.txtTime.Location = new System.Drawing.Point(591, 219);
+            this.txtTime.Name = "txtTime";
+            this.txtTime.Size = new System.Drawing.Size(245, 38);
+            this.txtTime.TabIndex = 6;
+            this.txtTime.Text = "";
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker1.Location = new System.Drawing.Point(721, 51);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 31);
+            this.dateTimePicker1.TabIndex = 5;
+            this.dateTimePicker1.Value = new System.DateTime(2018, 11, 29, 10, 25, 1, 0);
             // 
             // btnsearchconnection
             // 
@@ -86,6 +119,7 @@
             this.btnsearchconnection.TabIndex = 4;
             this.btnsearchconnection.Text = "Verbindung suchen ->";
             this.btnsearchconnection.UseVisualStyleBackColor = true;
+            this.btnsearchconnection.Click += new System.EventHandler(this.btnsearchconnection_Click);
             // 
             // txtconnectionto
             // 
@@ -111,6 +145,7 @@
             this.txtconnectionfrom.Size = new System.Drawing.Size(329, 52);
             this.txtconnectionfrom.TabIndex = 1;
             this.txtconnectionfrom.Text = "";
+            this.txtconnectionfrom.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtconnectionfrom_KeyUp);
             // 
             // lblconnectionfrom
             // 
@@ -128,14 +163,23 @@
             this.tabPage1.Controls.Add(this.lblplacefrom);
             this.tabPage1.Location = new System.Drawing.Point(8, 39);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Size = new System.Drawing.Size(934, 381);
+            this.tabPage1.Size = new System.Drawing.Size(934, 279);
             this.tabPage1.TabIndex = 1;
             this.tabPage1.Text = "Abfahrtsplan erstellen";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // bntcreatelist
+            // 
+            this.bntcreatelist.Location = new System.Drawing.Point(543, 140);
+            this.bntcreatelist.Name = "bntcreatelist";
+            this.bntcreatelist.Size = new System.Drawing.Size(295, 52);
+            this.bntcreatelist.TabIndex = 5;
+            this.bntcreatelist.Text = "Abfahrtsliste erstellen";
+            this.bntcreatelist.UseVisualStyleBackColor = true;
+            // 
             // txtplacefrom
             // 
-            this.txtplacefrom.Location = new System.Drawing.Point(20, 140);
+            this.txtplacefrom.Location = new System.Drawing.Point(44, 140);
             this.txtplacefrom.Name = "txtplacefrom";
             this.txtplacefrom.Size = new System.Drawing.Size(329, 52);
             this.txtplacefrom.TabIndex = 3;
@@ -150,24 +194,18 @@
             this.lblplacefrom.TabIndex = 2;
             this.lblplacefrom.Text = "Von:";
             // 
-            // bntcreatelist
-            // 
-            this.bntcreatelist.Location = new System.Drawing.Point(537, 131);
-            this.bntcreatelist.Name = "bntcreatelist";
-            this.bntcreatelist.Size = new System.Drawing.Size(295, 68);
-            this.bntcreatelist.TabIndex = 5;
-            this.bntcreatelist.Text = "Abfahrtsliste erstellen";
-            this.bntcreatelist.UseVisualStyleBackColor = true;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(974, 452);
+            this.ClientSize = new System.Drawing.Size(974, 344);
             this.Controls.Add(this.tabortsuchen);
             this.Controls.Add(this.lblvon);
+            this.MaximumSize = new System.Drawing.Size(1000, 415);
+            this.MinimumSize = new System.Drawing.Size(1000, 415);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Shown += new System.EventHandler(this.Form1_Shown);
             this.tabortsuchen.ResumeLayout(false);
             this.tabverbindungsuchen.ResumeLayout(false);
             this.tabverbindungsuchen.PerformLayout();
@@ -184,14 +222,17 @@
         private System.Windows.Forms.TabControl tabortsuchen;
         private System.Windows.Forms.TabPage tabverbindungsuchen;
         private System.Windows.Forms.Button btnsearchconnection;
-        private System.Windows.Forms.RichTextBox txtconnectionto;
         private System.Windows.Forms.Label lblconnectionto;
-        private System.Windows.Forms.RichTextBox txtconnectionfrom;
         private System.Windows.Forms.Label lblconnectionfrom;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.Button bntcreatelist;
         private System.Windows.Forms.RichTextBox txtplacefrom;
         private System.Windows.Forms.Label lblplacefrom;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.RichTextBox txtTime;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.RichTextBox txtconnectionto;
+        private System.Windows.Forms.RichTextBox txtconnectionfrom;
     }
 }
 

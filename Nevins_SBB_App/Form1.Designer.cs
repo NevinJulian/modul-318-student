@@ -31,9 +31,9 @@
             this.lblvon = new System.Windows.Forms.Label();
             this.tabortsuchen = new System.Windows.Forms.TabControl();
             this.tabverbindungsuchen = new System.Windows.Forms.TabPage();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.txtTime = new System.Windows.Forms.RichTextBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.btnsearchconnection = new System.Windows.Forms.Button();
             this.txtconnectionto = new System.Windows.Forms.RichTextBox();
             this.lblconnectionto = new System.Windows.Forms.Label();
@@ -43,9 +43,13 @@
             this.bntcreatelist = new System.Windows.Forms.Button();
             this.txtplacefrom = new System.Windows.Forms.RichTextBox();
             this.lblplacefrom = new System.Windows.Forms.Label();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.bntgooglemaps = new System.Windows.Forms.Button();
+            this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.tabortsuchen.SuspendLayout();
             this.tabverbindungsuchen.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblvon
@@ -60,6 +64,7 @@
             // 
             this.tabortsuchen.Controls.Add(this.tabverbindungsuchen);
             this.tabortsuchen.Controls.Add(this.tabPage1);
+            this.tabortsuchen.Controls.Add(this.tabPage2);
             this.tabortsuchen.Location = new System.Drawing.Point(12, 12);
             this.tabortsuchen.Name = "tabortsuchen";
             this.tabortsuchen.SelectedIndex = 0;
@@ -68,9 +73,9 @@
             // 
             // tabverbindungsuchen
             // 
+            this.tabverbindungsuchen.Controls.Add(this.dateTimePicker1);
             this.tabverbindungsuchen.Controls.Add(this.textBox1);
             this.tabverbindungsuchen.Controls.Add(this.txtTime);
-            this.tabverbindungsuchen.Controls.Add(this.dateTimePicker1);
             this.tabverbindungsuchen.Controls.Add(this.btnsearchconnection);
             this.tabverbindungsuchen.Controls.Add(this.txtconnectionto);
             this.tabverbindungsuchen.Controls.Add(this.lblconnectionto);
@@ -84,9 +89,16 @@
             this.tabverbindungsuchen.Text = "Verbindung suchen";
             this.tabverbindungsuchen.UseVisualStyleBackColor = true;
             // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(680, 225);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 31);
+            this.dateTimePicker1.TabIndex = 8;
+            // 
             // textBox1
             // 
-            this.textBox1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.textBox1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.textBox1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.textBox1.Location = new System.Drawing.Point(481, 51);
             this.textBox1.Name = "textBox1";
@@ -96,20 +108,11 @@
             // 
             // txtTime
             // 
-            this.txtTime.Location = new System.Drawing.Point(591, 219);
+            this.txtTime.Location = new System.Drawing.Point(404, 218);
             this.txtTime.Name = "txtTime";
             this.txtTime.Size = new System.Drawing.Size(245, 38);
             this.txtTime.TabIndex = 6;
             this.txtTime.Text = "";
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(721, 51);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 31);
-            this.dateTimePicker1.TabIndex = 5;
-            this.dateTimePicker1.Value = new System.DateTime(2018, 11, 29, 10, 25, 1, 0);
             // 
             // btnsearchconnection
             // 
@@ -176,6 +179,7 @@
             this.bntcreatelist.TabIndex = 5;
             this.bntcreatelist.Text = "Abfahrtsliste erstellen";
             this.bntcreatelist.UseVisualStyleBackColor = true;
+            this.bntcreatelist.Click += new System.EventHandler(this.bntcreatelist_Click);
             // 
             // txtplacefrom
             // 
@@ -194,6 +198,36 @@
             this.lblplacefrom.TabIndex = 2;
             this.lblplacefrom.Text = "Von:";
             // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.webBrowser1);
+            this.tabPage2.Controls.Add(this.bntgooglemaps);
+            this.tabPage2.Location = new System.Drawing.Point(8, 39);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(934, 279);
+            this.tabPage2.TabIndex = 2;
+            this.tabPage2.Text = "Stationen in der nähe finden";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // bntgooglemaps
+            // 
+            this.bntgooglemaps.Location = new System.Drawing.Point(655, 61);
+            this.bntgooglemaps.Name = "bntgooglemaps";
+            this.bntgooglemaps.Size = new System.Drawing.Size(217, 51);
+            this.bntgooglemaps.TabIndex = 0;
+            this.bntgooglemaps.Text = "Google Maps";
+            this.bntgooglemaps.UseVisualStyleBackColor = true;
+            this.bntgooglemaps.Click += new System.EventHandler(this.bntgooglemaps_Click);
+            // 
+            // webBrowser1
+            // 
+            this.webBrowser1.Location = new System.Drawing.Point(6, 6);
+            this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
+            this.webBrowser1.Name = "webBrowser1";
+            this.webBrowser1.Size = new System.Drawing.Size(629, 275);
+            this.webBrowser1.TabIndex = 1;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -211,6 +245,7 @@
             this.tabverbindungsuchen.PerformLayout();
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            this.tabPage2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -228,11 +263,14 @@
         private System.Windows.Forms.Button bntcreatelist;
         private System.Windows.Forms.RichTextBox txtplacefrom;
         private System.Windows.Forms.Label lblplacefrom;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.RichTextBox txtTime;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.RichTextBox txtconnectionto;
         private System.Windows.Forms.RichTextBox txtconnectionfrom;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.Button bntgooglemaps;
+        private System.Windows.Forms.WebBrowser webBrowser1;
     }
 }
 

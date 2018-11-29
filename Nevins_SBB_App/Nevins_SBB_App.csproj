@@ -45,6 +45,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abfahrtsliste_ausgabe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Abfahrtsliste_ausgabe.Designer.cs">
+      <DependentUpon>Abfahrtsliste_ausgabe.cs</DependentUpon>
+    </Compile>
     <Compile Include="Ausgabe_Verbindung.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -59,6 +65,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Abfahrtsliste_ausgabe.resx">
+      <DependentUpon>Abfahrtsliste_ausgabe.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Ausgabe_Verbindung.resx">
       <DependentUpon>Ausgabe_Verbindung.cs</DependentUpon>
     </EmbeddedResource>

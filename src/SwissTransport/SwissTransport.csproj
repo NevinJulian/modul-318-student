@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abfahrtsplan_ViewModel.cs" />
     <Compile Include="Connections.cs" />
     <Compile Include="StationBoardRoot.cs" />
     <Compile Include="Stations.cs" />

@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using SwissTransport;
 
+
+
 namespace Nevins_SBB_App
 {
     public partial class Form1 : Form
@@ -35,7 +37,7 @@ namespace Nevins_SBB_App
         private void Form1_Shown(object sender, EventArgs e)
         {
             dateTimePicker1.Value = DateTime.Now;
-
+           
 
         }
 
@@ -56,5 +58,15 @@ namespace Nevins_SBB_App
             textBox1.AutoCompleteCustomSource = MyCollection;
         }
 
+        private void bntcreatelist_Click(object sender, EventArgs e)
+        {
+            Abfahrtsliste_ausgabe abfahrtsliste_Ausgabe = new Abfahrtsliste_ausgabe(txtplacefrom.Text);
+            abfahrtsliste_Ausgabe.ShowDialog();
+        }
+
+        private void bntgooglemaps_Click(object sender, EventArgs e)
+        {
+            webBrowser1.Navigate("https://www.google.ch/maps/place/46°58'26.3\"N + 8°22'45.4\"E");
+        }
     }
 }

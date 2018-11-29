@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -35,14 +36,18 @@ namespace Nevins_SBB_App
                 viewModel.From = connection.From.Station.Name;
                 viewModel.To = connection.To.Station.Name;
                 viewModel.departerTime = DateTime.Parse(connection.From.Departure);
-                viewModel.Duration = connection.Duration;
+                viewModel.Duration = DateTime.ParseExact(connection.Duration.Substring(3, connection.Duration.Length-3), "HH:mm:ss", CultureInfo.InvariantCulture,DateTimeStyles.None).TimeOfDay.ToString() ;
                 viewModel.Platform = connection.From.Platform;
                 viewModel.Delay = connection.From.Delay;
                 bindingSource.Add(viewModel);
+                txtconnectionto.Text = connection.To.Station.Name;
+                txtconnectionfrom.Text = connection.From.Station.Name;
             }
 
             gridView.AutoSize = true;
             gridView.DataSource = bindingSource;
+
         }
+
     }
 }

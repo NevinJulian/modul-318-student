@@ -14,12 +14,12 @@ using SwissTransport;
 
 namespace Nevins_SBB_App
 {
-    public partial class Form1 : Form
+    public partial class SBB_Fahrplan : Form
     {
         private Transport transport = new Transport();
         private AutoCompleteStringCollection MyCollection = new AutoCompleteStringCollection();
 
-        public Form1()
+        public SBB_Fahrplan()
         {
             InitializeComponent();
         }
@@ -38,25 +38,10 @@ namespace Nevins_SBB_App
         private void Form1_Shown(object sender, EventArgs e)
         {
             dateTimePicker1.Value = DateTime.Now;
-           
-
-        }
-
-        private void txtconnectionfrom_KeyUp(object sender, KeyEventArgs e)
-        {
-            var test = 22;
-        }
-
-        private void textBox1_KeyUp(object sender, KeyEventArgs e)
-        {
-            MyCollection.Clear();
-            var stations = transport.GetStations(textBox1.Text);
-            foreach (var item in stations.StationList)
+            if (txtconnectionfrom.Text == "" || txtconnectionto.Text == "")
             {
-                MyCollection.Add(item.Name);
+                btnsearchconnection.Enabled = false;
             }
-
-            textBox1.AutoCompleteCustomSource = MyCollection;
         }
 
         private void bntcreatelist_Click(object sender, EventArgs e)
@@ -68,6 +53,79 @@ namespace Nevins_SBB_App
         private void bntgooglemaps_Click(object sender, EventArgs e)
         {
             webBrowser1.Navigate("https://www.google.ch/maps/place/46°58'26.3\"N + 8°22'45.4\"E");
+        }
+
+        private void txtconnectionfrom_TextChanged(object sender, EventArgs e)
+        {
+            AutoCompleteStringCollection coll = new AutoCompleteStringCollection();
+            Stations sta = new Stations();
+            Transport trans = new Transport();
+
+            coll.Clear();
+
+            sta = trans.GetStations(txtconnectionfrom.Text);
+
+            foreach(var station in sta.StationList)
+            {
+                coll.Add(station.Name);
+            }
+
+            Cursor.Current = Cursors.WaitCursor;
+            Application.DoEvents();
+
+            txtconnectionfrom.AutoCompleteCustomSource = coll;
+
+            if (txtconnectionfrom.Text != "" || txtconnectionto.Text != "")
+            {
+                btnsearchconnection.Enabled = true;
+            }
+        }
+
+        private void txtconnectionto_TextChanged(object sender, EventArgs e)
+        {
+            AutoCompleteStringCollection coll = new AutoCompleteStringCollection();
+            Stations sta = new Stations();
+            Transport trans = new Transport();
+
+            coll.Clear();
+
+            sta = trans.GetStations(txtconnectionto.Text);
+
+            foreach (var station in sta.StationList)
+            {
+                coll.Add(station.Name);
+            }
+
+            Cursor.Current = Cursors.WaitCursor;
+            Application.DoEvents();
+
+            txtconnectionto.AutoCompleteCustomSource = coll;
+
+            if (txtconnectionfrom.Text != "" || txtconnectionto.Text != "")
+            {
+                btnsearchconnection.Enabled = true;
+            }
+        }
+
+        private void txtplacefrom_TextChanged(object sender, EventArgs e)
+        {
+            AutoCompleteStringCollection coll = new AutoCompleteStringCollection();
+            Stations sta = new Stations();
+            Transport trans = new Transport();
+
+            coll.Clear();
+
+            sta = trans.GetStations(txtplacefrom.Text);
+
+            foreach (var station in sta.StationList)
+            {
+                coll.Add(station.Name);
+            }
+
+            Cursor.Current = Cursors.WaitCursor;
+            Application.DoEvents();
+
+            txtplacefrom.AutoCompleteCustomSource = coll;
         }
 
     }

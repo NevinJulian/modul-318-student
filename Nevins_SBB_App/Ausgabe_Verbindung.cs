@@ -17,17 +17,25 @@ namespace Nevins_SBB_App
     {
         private Connections connections;
 
-        public Ausgabe_Verbindung(string to, string from, string date, string time)
+        private Ausgabe_Verbindung(string to, string from, string date, string time)
         {
             Transport transport = new Transport();
-            connections = transport.GetConnectionsByDate(from, to, date, time);
-            
+            try
+            {
+                connections = transport.GetConnectionsByDate(from, to, date, time);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(Convert.ToString(ex));
+                connections = null;
+            }
             InitializeComponent();
 
         }
 
         private void Ausgabe_Verbindung_Shown(object sender, EventArgs e)
         {
+            
             BindingSource bindingSource = new BindingSource();
 
             foreach (Connection connection in connections.ConnectionList)

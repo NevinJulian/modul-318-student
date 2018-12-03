@@ -1,6 +1,6 @@
 ﻿namespace Nevins_SBB_App
 {
-    partial class Ausgabe_Verbindung
+    partial class DisplayConnections
     {
         /// <summary>
         /// Required designer variable.
@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DisplayConnections));
             this.gridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtconnectionfrom = new System.Windows.Forms.RichTextBox();
@@ -41,6 +42,7 @@
             // 
             this.gridView.AllowUserToAddRows = false;
             this.gridView.AllowUserToDeleteRows = false;
+            this.gridView.BackgroundColor = System.Drawing.SystemColors.Control;
             this.gridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridView.Location = new System.Drawing.Point(12, 106);
             this.gridView.Name = "gridView";
@@ -95,7 +97,7 @@
             this.lblconnectionto.TabIndex = 7;
             this.lblconnectionto.Text = "Nach:";
             // 
-            // Ausgabe_Verbindung
+            // DisplayConnections
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -105,9 +107,10 @@
             this.Controls.Add(this.txtconnectionfrom);
             this.Controls.Add(this.lbllistfrom);
             this.Controls.Add(this.gridView);
-            this.Name = "Ausgabe_Verbindung";
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Name = "DisplayConnections";
             this.Text = "Ausgabe_Verbindung";
-            this.Shown += new System.EventHandler(this.Ausgabe_Verbindung_Shown);
+            this.Shown += new System.EventHandler(this.DisplayConnection_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

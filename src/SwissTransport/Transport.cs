@@ -57,7 +57,14 @@ namespace SwissTransport
 
             return null;
         }
-
+        /// <summary>
+        /// Gets all Connections, but with a defined date
+        /// </summary>
+        /// <param name="fromStation"></param>
+        /// <param name="toStattion"></param>
+        /// <param name="date"></param>
+        /// <param name="time"></param>
+        /// <returns>All connections with defined date</returns>
         public Connections GetConnectionsByDate(string fromStation, string toStattion, string date, string time)
         {          
             // date format = YYYY-MM-DD

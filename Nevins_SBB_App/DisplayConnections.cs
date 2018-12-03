@@ -13,11 +13,11 @@ using SwissTransport;
 
 namespace Nevins_SBB_App
 {
-    public partial class Ausgabe_Verbindung : Form
+    public partial class DisplayConnections : Form
     {
         private Connections connections;
 
-        private Ausgabe_Verbindung(string to, string from, string date, string time)
+        public DisplayConnections(string to, string from, string date, string time)
         {
             Transport transport = new Transport();
             try
@@ -33,20 +33,19 @@ namespace Nevins_SBB_App
 
         }
 
-        private void Ausgabe_Verbindung_Shown(object sender, EventArgs e)
+        private void DisplayConnection_Shown(object sender, EventArgs e)
         {
-            
             BindingSource bindingSource = new BindingSource();
 
             foreach (Connection connection in connections.ConnectionList)
             {
-                Verbindungs_ViewModel viewModel = new Verbindungs_ViewModel();
-                viewModel.From = connection.From.Station.Name;
-                viewModel.To = connection.To.Station.Name;
-                viewModel.departerTime = DateTime.Parse(connection.From.Departure);
-                viewModel.Duration = DateTime.ParseExact(connection.Duration.Substring(3, connection.Duration.Length-3), "HH:mm:ss", CultureInfo.InvariantCulture,DateTimeStyles.None).TimeOfDay.ToString() ;
-                viewModel.Platform = connection.From.Platform;
-                viewModel.Delay = connection.From.Delay;
+                ConnectionViewModel viewModel = new ConnectionViewModel();
+                viewModel.Von = connection.From.Station.Name;
+                viewModel.Nach = connection.To.Station.Name;
+                viewModel.Abfahrtszeit = DateTime.Parse(connection.From.Departure);
+                viewModel.Dauer = DateTime.ParseExact(connection.Duration.Substring(3, connection.Duration.Length - 3), "HH:mm:ss", CultureInfo.InvariantCulture, DateTimeStyles.None).TimeOfDay.ToString();
+                viewModel.Plattform = connection.From.Platform;
+                viewModel.Verspätung = connection.From.Delay;
                 bindingSource.Add(viewModel);
                 txtconnectionto.Text = connection.To.Station.Name;
                 txtconnectionfrom.Text = connection.From.Station.Name;
@@ -54,8 +53,6 @@ namespace Nevins_SBB_App
 
             gridView.AutoSize = true;
             gridView.DataSource = bindingSource;
-
         }
-
     }
 }

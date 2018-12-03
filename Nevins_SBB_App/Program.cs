@@ -16,7 +16,7 @@ namespace Nevins_SBB_App
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new SBB_Fahrplan());
+            Application.Run(new SBBApp());
         }
     }
 }

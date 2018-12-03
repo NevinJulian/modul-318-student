@@ -1,6 +1,6 @@
 ﻿namespace Nevins_SBB_App
 {
-    partial class Google_Maps
+    partial class GoogleMaps
     {
         /// <summary>
         /// Required designer variable.
@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GoogleMaps));
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.SuspendLayout();
             // 
@@ -37,17 +38,19 @@
             this.webBrowser1.Location = new System.Drawing.Point(0, 0);
             this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
             this.webBrowser1.Name = "webBrowser1";
-            this.webBrowser1.Size = new System.Drawing.Size(800, 450);
+            this.webBrowser1.Size = new System.Drawing.Size(1622, 1106);
             this.webBrowser1.TabIndex = 0;
             // 
-            // Google_Maps
+            // GoogleMaps
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1622, 1106);
             this.Controls.Add(this.webBrowser1);
-            this.Name = "Google_Maps";
-            this.Text = "Google_Maps";
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Name = "GoogleMaps";
+            this.Text = "GoogleMaps";
+            this.Shown += new System.EventHandler(this.GoogleMaps_Shown);
             this.ResumeLayout(false);
 
         }

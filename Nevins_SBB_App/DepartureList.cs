@@ -11,12 +11,12 @@ using SwissTransport;
 
 namespace Nevins_SBB_App
 {
-    public partial class Abfahrtsliste_ausgabe : Form
+    public partial class DepartureList : Form
     {
        
         private StationBoardRoot stationBoard;
 
-        public Abfahrtsliste_ausgabe(string from)
+        public DepartureList(string from)
         {
             Transport transport = new Transport();
             Stations stations = transport.GetStations(from);
@@ -24,21 +24,21 @@ namespace Nevins_SBB_App
             InitializeComponent();
         }
 
-        private void Abfahrtsliste_ausgabe_Shown(object sender, EventArgs e)
+        private void DepartureList_Shown(object sender, EventArgs e)
         {
             BindingSource bindingSource = new BindingSource();
 
             foreach (StationBoard sb in stationBoard.Entries)
             {
-                Abfahrtsplan_ViewModel viewModel = new Abfahrtsplan_ViewModel();
-                viewModel.From = stationBoard.Station.Name;
-                viewModel.To = sb.To;
-                viewModel.Departure = sb.Stop.Departure;
+                DepartureListViewModel viewModel = new DepartureListViewModel();
+                viewModel.Von = stationBoard.Station.Name;
+                viewModel.Nach = sb.To;
+                viewModel.Abfahrtszeit = sb.Stop.Departure;
                 //viewModel.Duration = DateTime.ParseExact(stationBoard.Duration.Substring(3, stationBoard.Duration.Length - 3), "HH:mm:ss", stationBoard.InvariantCulture, DateTimeStyles.None).TimeOfDay.ToString();
                 //viewModel.Platform = sb.Number;
                 //viewModel.Delay = stationBoard.From.Delay;
-                viewModel.Name = sb.Name;
-                viewModel.Operator = sb.Operator;
+                viewModel.Linie = sb.Name;
+                viewModel.Bahn = sb.Operator;
                 bindingSource.Add(viewModel);
             }
 
@@ -46,6 +46,5 @@ namespace Nevins_SBB_App
             gridView.DataSource = bindingSource;
             txtlistfrom.Text = stationBoard.Station.Name;
         }
-
     }
 }

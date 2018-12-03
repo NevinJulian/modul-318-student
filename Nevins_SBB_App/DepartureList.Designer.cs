@@ -1,6 +1,6 @@
 ﻿namespace Nevins_SBB_App
 {
-    partial class Abfahrtsliste_ausgabe
+    partial class DepartureList
     {
         /// <summary>
         /// Required designer variable.
@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DepartureList));
             this.gridView = new System.Windows.Forms.DataGridView();
             this.lbllistfrom = new System.Windows.Forms.Label();
             this.txtlistfrom = new System.Windows.Forms.RichTextBox();
@@ -41,13 +42,14 @@
             this.gridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.gridView.BackgroundColor = System.Drawing.SystemColors.Control;
             this.gridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridView.Location = new System.Drawing.Point(12, 88);
             this.gridView.Name = "gridView";
             this.gridView.ReadOnly = true;
             this.gridView.RowTemplate.Height = 33;
             this.gridView.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.gridView.Size = new System.Drawing.Size(1276, 626);
+            this.gridView.Size = new System.Drawing.Size(1276, 660);
             this.gridView.TabIndex = 1;
             // 
             // lbllistfrom
@@ -69,17 +71,18 @@
             this.txtlistfrom.TabIndex = 3;
             this.txtlistfrom.Text = "";
             // 
-            // Abfahrtsliste_ausgabe
+            // DepartureList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1304, 726);
+            this.ClientSize = new System.Drawing.Size(1304, 760);
             this.Controls.Add(this.txtlistfrom);
             this.Controls.Add(this.lbllistfrom);
             this.Controls.Add(this.gridView);
-            this.Name = "Abfahrtsliste_ausgabe";
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Name = "DepartureList";
             this.Text = "Abfahrtsliste_ausgabe";
-            this.Shown += new System.EventHandler(this.Abfahrtsliste_ausgabe_Shown);
+            this.Shown += new System.EventHandler(this.DepartureList_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

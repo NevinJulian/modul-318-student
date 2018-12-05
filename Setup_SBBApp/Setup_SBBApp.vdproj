@@ -45,8 +45,8 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_8A676252AD3A8EF71FB070BFF432FC49"
-        "OwnerKey" = "8:_2823CDF70B684932996E5696FB958DA0"
+        "MsmKey" = "8:_7472B5C0D6AD4BCB8D7DC02BF8ECC215"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -58,12 +58,18 @@
         "Entry"
         {
         "MsmKey" = "8:_B1CD3B2417E85D52C6203F36473865F6"
-        "OwnerKey" = "8:_8A676252AD3A8EF71FB070BFF432FC49"
+        "OwnerKey" = "8:_D5605EC622A18BFC90F47DCF55656F74"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_BF0616F9A821605A2FD87FF217798380"
+        "OwnerKey" = "8:_2823CDF70B684932996E5696FB958DA0"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_D5605EC622A18BFC90F47DCF55656F74"
         "OwnerKey" = "8:_2823CDF70B684932996E5696FB958DA0"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -112,13 +118,13 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_2823CDF70B684932996E5696FB958DA0"
+        "OwnerKey" = "8:_D5605EC622A18BFC90F47DCF55656F74"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_8A676252AD3A8EF71FB070BFF432FC49"
+        "OwnerKey" = "8:_2823CDF70B684932996E5696FB958DA0"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -288,23 +294,12 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_8A676252AD3A8EF71FB070BFF432FC49"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_7472B5C0D6AD4BCB8D7DC02BF8ECC215"
             {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:SwissTransport, Version=1.0.0.0, Culture=neutral, processorArchitecture=AMD64"
-                "ScatterAssemblies"
-                {
-                    "_8A676252AD3A8EF71FB070BFF432FC49"
-                    {
-                    "Name" = "8:SwissTransport.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:SwissTransport.dll"
-            "TargetName" = "8:"
+            "SourcePath" = "8:..\\..\\..\\..\\Pictures\\iconfinder_train_452384.ico"
+            "TargetName" = "8:iconfinder_train_452384.ico"
             "Tag" = "8:"
-            "Folder" = "8:_043D06B5A0E4490EA9840531820FDAA1"
+            "Folder" = "8:_0B1C9FAA488242A4B2690DEFD39ACB55"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -316,7 +311,7 @@
             "PackageAs" = "3:1"
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
+            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_B1CD3B2417E85D52C6203F36473865F6"
@@ -364,6 +359,37 @@
                     }
                 }
             "SourcePath" = "8:AjaxMin.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_043D06B5A0E4490EA9840531820FDAA1"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_D5605EC622A18BFC90F47DCF55656F74"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:SwissTransport, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_D5605EC622A18BFC90F47DCF55656F74"
+                    {
+                    "Name" = "8:SwissTransport.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:SwissTransport.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_043D06B5A0E4490EA9840531820FDAA1"
@@ -521,6 +547,17 @@
             "Property" = "8:TARGETDIR"
                 "Folders"
                 {
+                    "{9EF0B969-E518-4E46-987F-47570745A589}:_0B1C9FAA488242A4B2690DEFD39ACB55"
+                    {
+                    "Name" = "8:img"
+                    "AlwaysCreate" = "11:FALSE"
+                    "Condition" = "8:"
+                    "Transitive" = "11:FALSE"
+                    "Property" = "8:_A0185DCC068849DAA78059AB621C3B2D"
+                        "Folders"
+                        {
+                        }
+                    }
                 }
             }
             "{1525181F-901A-416C-8A58-119130FE478E}:_1B9E2BD3D779471C989779B9DD8CDB98"
@@ -562,7 +599,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Setup_SBBApp"
         "ProductCode" = "8:{8BAEE651-3897-4549-90D1-8CFA4F8FE93E}"
-        "PackageCode" = "8:{8E7380B0-4588-4D7D-9CFE-92A20ECF1F36}"
+        "PackageCode" = "8:{C5A9DCDE-7EB4-41ED-B1F3-86E66A5EFE38}"
         "UpgradeCode" = "8:{7D232B6B-D42D-47AD-896E-660E01250585}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
@@ -684,7 +721,7 @@
         {
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_502D0585F79C46B8B23F894B2B04CAEC"
             {
-            "Name" = "8:Nevins_SBB_App (Active)"
+            "Name" = "8:Nevins_SBB_App"
             "Arguments" = "8:"
             "Description" = "8:"
             "ShowCmd" = "3:1"
@@ -693,7 +730,7 @@
             "Target" = "8:_2823CDF70B684932996E5696FB958DA0"
             "Folder" = "8:_1B9E2BD3D779471C989779B9DD8CDB98"
             "WorkingFolder" = "8:_043D06B5A0E4490EA9840531820FDAA1"
-            "Icon" = "8:"
+            "Icon" = "8:_7472B5C0D6AD4BCB8D7DC02BF8ECC215"
             "Feature" = "8:"
             }
         }
@@ -1125,7 +1162,7 @@
             }
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_2823CDF70B684932996E5696FB958DA0"
             {
-            "SourcePath" = "8:..\\Nevins_SBB_App\\obj\\x64\\Debug\\Nevins_SBB_App.exe"
+            "SourcePath" = "8:..\\Nevins_SBB_App\\obj\\Release\\Nevins_SBB_App.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_043D06B5A0E4490EA9840531820FDAA1"

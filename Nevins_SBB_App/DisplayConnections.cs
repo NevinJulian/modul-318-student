@@ -5,9 +5,11 @@ using System.Data;
 using System.Drawing;
 using System.Globalization;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Newtonsoft.Json;
 using SwissTransport;
 
 
@@ -24,10 +26,14 @@ namespace Nevins_SBB_App
             {
                 connections = transport.GetConnectionsByDate(from, to, date, time);
             }
-            catch(Newtonsoft.Json.JsonSerializationException)
+            catch(JsonSerializationException)
             {
                 MessageBox.Show("Es wurden keine Koordinaten zu einer angegebenen Staion gefunden!\n Bitt andere Station eingeben.");
                 connections = null;
+            }
+            catch (WebException)
+            {
+                MessageBox.Show("Die Appliktion benötigt eine laufende Internetverbindung!");
             }
             InitializeComponent();
 

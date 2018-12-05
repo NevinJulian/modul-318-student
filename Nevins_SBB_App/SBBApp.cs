@@ -4,9 +4,11 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Newtonsoft.Json;
 using SwissTransport;
 
 
@@ -27,21 +29,15 @@ namespace Nevins_SBB_App
         }
 
         private void btnsearchconnection_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                string to = txtConnectionTo.Text;
-                string from = txtConnectionFrom.Text;
-                var departDate = dateTimePicker.Value;
-                string formattedDate = departDate.Year + "-" + departDate.Month + "-" + departDate.Day;
-                string time = txtTime.Text;
-                DisplayConnections ausgabe_Verbindung = new DisplayConnections(to, from, formattedDate, time);
-                ausgabe_Verbindung.ShowDialog();
-            }
-            catch
-            {
-
-            }
+        { 
+            string to = txtConnectionTo.Text;
+            string from = txtConnectionFrom.Text;
+            var departDate = dateTimePicker.Value;
+            string formattedDate = departDate.Year + "-" + departDate.Month + "-" + departDate.Day;
+            string time = txtTime.Text;
+            DisplayConnections ausgabe_Verbindung = new DisplayConnections(to, from, formattedDate, time);
+            ausgabe_Verbindung.ShowDialog();
+            
         }
 
         private void SBBApp_Shown(object sender, EventArgs e)
@@ -54,8 +50,6 @@ namespace Nevins_SBB_App
             listConnectionFrom.Hide();
             listConnectionTo.Hide();
             listPlaceFrom.Hide();
-            lblError.Hide();
-            lblError2.Hide();
         }
 
         private void bntcreatelist_Click(object sender, EventArgs e)
@@ -76,21 +70,17 @@ namespace Nevins_SBB_App
             {
                 btnSearchConnection.Enabled = true;
             }
-
-            if (sta.StationList.Count() == 0)
+            try
             {
-                lblError.Text = "Bitte gültige Station eingeben!";
-                listConnectionFrom.Hide();
-                lblError.Show();
-            }
-            else if (sta.StationList.Count() != 0)
-            {
-                lblError.Hide();
                 foreach (var station in sta.StationList)
                 {
                     try
                     {
                         listConnectionFrom.Items.Add(station.Name);
+                    }
+                    catch (System.ArgumentNullException)
+                    {
+                        MessageBox.Show("Die Stationsfelder dürfen nicht leer sein!");
                     }
                     catch (Exception)
                     {
@@ -98,6 +88,10 @@ namespace Nevins_SBB_App
                         txtConnectionFrom.Text = "";
                     }
                 }
+            }
+            catch (System.NullReferenceException)
+            {
+                MessageBox.Show("In der Liste der Vorschläge der eingegeben Station hat es keine Einträge!");
             }
         }
 
@@ -113,29 +107,30 @@ namespace Nevins_SBB_App
             {
                 btnSearchConnection.Enabled = true;
             }
-
-            if (sta.StationList.Count() == 0)
+            try
             {
-                lblError.Text = "Bitte gültige Station eingeben!";
-                listConnectionTo.Hide();
-                lblError.Show();
-            }
-            else if (sta.StationList.Count() != 0)
-            {
-                lblError.Hide();
                 foreach (var station in sta.StationList)
                 {
                     try
                     {
                         listConnectionTo.Items.Add(station.Name);
                     }
-                    catch(Exception)
+                    catch (System.ArgumentNullException)
+                    {
+                        MessageBox.Show("Die Stationsfelder dürfen nicht leer sein!");
+                    }
+                    catch (Exception)
                     {
                         MessageBox.Show("Bitte Gültige Station eingeben!");
                         txtConnectionTo.Text = "";
                     }
                 }
             }
+            catch (System.NullReferenceException)
+            {
+                MessageBox.Show("In der Liste der Vorschläge der eingegeben Station hat es keine Einträge!");
+            }
+
         }
 
         private void txtplacefrom_TextChanged(object sender, EventArgs e)
@@ -150,42 +145,54 @@ namespace Nevins_SBB_App
             {
                 btnSearchConnection.Enabled = true;
             }
-
-            if (sta.StationList.Count() == 0)
+            try
             {
-                lblError2.Text = "Bitte gültige Station eingeben!";
-                listPlaceFrom.Hide();
-                lblError2.Show();
-            }
-            else if (sta.StationList.Count() != 0)
-            {
-                lblError2.Hide();
                 foreach (var station in sta.StationList)
                 {
                     try
                     {
                         listPlaceFrom.Items.Add(station.Name);
                     }
+                    catch (System.ArgumentNullException)
+                    {
+                        MessageBox.Show("Die Stationsfelder dürfen nicht leer sein!");
+                    }
                     catch (Exception)
                     {
                         MessageBox.Show("Bitte Gültige Station eingeben!");
-                        txtConnectionTo.Text = "";
+                        txtPlaceFrom.Text = "";
                     }
                 }
             }
+            catch (System.NullReferenceException)
+            {
+                MessageBox.Show("In der Liste der Vorschläge der eingegeben Station hat es keine Einträge!");
+            }
+
         }
 
         private void list_Fill(ListBox List, TextBox Textbox)
         {
-            Transport trans = new Transport();
-            List.Show();
+            try
+            {
+                Transport trans = new Transport();
+                List.Show();
 
-            List.Items.Clear();
+                List.Items.Clear();
 
-            sta = trans.GetStations(Textbox.Text);
+                sta = trans.GetStations(Textbox.Text);
 
-            Cursor.Current = Cursors.WaitCursor;
-            Application.DoEvents();
+                Cursor.Current = Cursors.WaitCursor;
+                Application.DoEvents();
+            }
+            catch (JsonSerializationException)
+            {
+                MessageBox.Show("Es wurden keine Koordinaten zu einer angegebenen Staion gefunden!\n Bitt andere Station eingeben.");
+            }
+            catch (WebException)
+            {
+                MessageBox.Show("Die Appliktion benötigt eine laufende Internetverbindung!");
+            }
         }
 
         private void listconnectionfrom_DoubleClick(object sender, EventArgs e)

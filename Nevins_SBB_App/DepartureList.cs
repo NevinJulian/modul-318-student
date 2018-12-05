@@ -4,9 +4,11 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Newtonsoft.Json;
 using SwissTransport;
 
 namespace Nevins_SBB_App
@@ -18,10 +20,21 @@ namespace Nevins_SBB_App
 
         public DepartureList(string from)
         {
-            Transport transport = new Transport();
-            Stations stations = transport.GetStations(from);
-            stationBoard = transport.GetStationBoard(from, stations.StationList[0].Id);
-            InitializeComponent();
+            try
+            {
+                Transport transport = new Transport();
+                Stations stations = transport.GetStations(from);
+                stationBoard = transport.GetStationBoard(from, stations.StationList[0].Id);
+                InitializeComponent();
+            }
+            catch (WebException)
+            {
+                MessageBox.Show("Die Appliktion benötigt eine laufende Internetverbindung!");
+            }
+            catch (JsonSerializationException)
+            {
+                MessageBox.Show("Es wurden keine Koordinaten zu einer angegebenen Staion gefunden!\n Bitt andere Station eingeben.");
+            }
         }
 
         private void DepartureList_Shown(object sender, EventArgs e)

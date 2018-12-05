@@ -31,14 +31,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SBBApp));
             this.lblvon = new System.Windows.Forms.Label();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.lblError2 = new System.Windows.Forms.Label();
-            this.bntGoogleMaps = new System.Windows.Forms.Button();
             this.listPlaceFrom = new System.Windows.Forms.ListBox();
             this.txtPlaceFrom = new System.Windows.Forms.TextBox();
             this.bntCreateList = new System.Windows.Forms.Button();
             this.lblPlaceFrom = new System.Windows.Forms.Label();
             this.tabverbindungsuchen = new System.Windows.Forms.TabPage();
-            this.lblError = new System.Windows.Forms.Label();
             this.listConnectionTo = new System.Windows.Forms.ListBox();
             this.listConnectionFrom = new System.Windows.Forms.ListBox();
             this.lblErrorOne = new System.Windows.Forms.Label();
@@ -68,8 +65,6 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.lblError2);
-            this.tabPage1.Controls.Add(this.bntGoogleMaps);
             this.tabPage1.Controls.Add(this.listPlaceFrom);
             this.tabPage1.Controls.Add(this.txtPlaceFrom);
             this.tabPage1.Controls.Add(this.bntCreateList);
@@ -81,27 +76,6 @@
             this.tabPage1.TabIndex = 1;
             this.tabPage1.Text = "Abfahrtsplan erstellen";
             this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // lblError2
-            // 
-            this.lblError2.AutoSize = true;
-            this.lblError2.ForeColor = System.Drawing.Color.Red;
-            this.lblError2.Location = new System.Drawing.Point(513, 270);
-            this.lblError2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblError2.Name = "lblError2";
-            this.lblError2.Size = new System.Drawing.Size(59, 25);
-            this.lblError2.TabIndex = 16;
-            this.lblError2.Text = "Error";
-            // 
-            // bntGoogleMaps
-            // 
-            this.bntGoogleMaps.Location = new System.Drawing.Point(518, 158);
-            this.bntGoogleMaps.Margin = new System.Windows.Forms.Padding(4);
-            this.bntGoogleMaps.Name = "bntGoogleMaps";
-            this.bntGoogleMaps.Size = new System.Drawing.Size(216, 52);
-            this.bntGoogleMaps.TabIndex = 15;
-            this.bntGoogleMaps.Text = "Google Maps";
-            this.bntGoogleMaps.UseVisualStyleBackColor = true;
             // 
             // listPlaceFrom
             // 
@@ -147,7 +121,6 @@
             // 
             // tabverbindungsuchen
             // 
-            this.tabverbindungsuchen.Controls.Add(this.lblError);
             this.tabverbindungsuchen.Controls.Add(this.listConnectionTo);
             this.tabverbindungsuchen.Controls.Add(this.listConnectionFrom);
             this.tabverbindungsuchen.Controls.Add(this.lblErrorOne);
@@ -168,16 +141,6 @@
             this.tabverbindungsuchen.TabIndex = 0;
             this.tabverbindungsuchen.Text = "Verbindung suchen";
             this.tabverbindungsuchen.UseVisualStyleBackColor = true;
-            // 
-            // lblError
-            // 
-            this.lblError.AutoSize = true;
-            this.lblError.ForeColor = System.Drawing.Color.Red;
-            this.lblError.Location = new System.Drawing.Point(32, 197);
-            this.lblError.Name = "lblError";
-            this.lblError.Size = new System.Drawing.Size(59, 25);
-            this.lblError.TabIndex = 15;
-            this.lblError.Text = "Error";
             // 
             // listConnectionTo
             // 
@@ -338,13 +301,11 @@
 
         private System.Windows.Forms.Label lblvon;
         private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.Button bntGoogleMaps;
         private System.Windows.Forms.ListBox listPlaceFrom;
         private System.Windows.Forms.TextBox txtPlaceFrom;
         private System.Windows.Forms.Button bntCreateList;
         private System.Windows.Forms.Label lblPlaceFrom;
         private System.Windows.Forms.TabPage tabverbindungsuchen;
-        private System.Windows.Forms.Label lblError;
         private System.Windows.Forms.ListBox listConnectionTo;
         private System.Windows.Forms.ListBox listConnectionFrom;
         private System.Windows.Forms.Label lblErrorOne;
@@ -358,7 +319,6 @@
         private System.Windows.Forms.Label lblConnectionTo;
         private System.Windows.Forms.Label lblConnectionFrom;
         private System.Windows.Forms.TabControl tabortsuchen;
-        private System.Windows.Forms.Label lblError2;
     }
 }
 

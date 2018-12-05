@@ -8,9 +8,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SwissTransportTest", "tests\SwissTransportTest\SwissTransportTest.csproj", "{959C6E54-5B1C-40F5-938A-C57B17451421}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "doc", "doc", "{46486B6E-D624-4E03-BEC0-3BD04E9B8161}"
-	ProjectSection(SolutionItems) = preProject
-		..\..\..\Desktop\M318\Programmrichtlinien.docx = ..\..\..\Desktop\M318\Programmrichtlinien.docx
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nevins_SBB_App", "Nevins_SBB_App\Nevins_SBB_App.csproj", "{3D163266-2A8C-4F0E-9A3C-0EE62D824051}"
 EndProject

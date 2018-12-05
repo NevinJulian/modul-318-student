@@ -88,7 +88,15 @@ namespace Nevins_SBB_App
                 lblError.Hide();
                 foreach (var station in sta.StationList)
                 {
-                    listConnectionFrom.Items.Add(station.Name);
+                    try
+                    {
+                        listConnectionFrom.Items.Add(station.Name);
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Bitte Gültige Station eingeben!");
+                        txtConnectionFrom.Text = "";
+                    }
                 }
             }
         }
@@ -117,7 +125,15 @@ namespace Nevins_SBB_App
                 lblError.Hide();
                 foreach (var station in sta.StationList)
                 {
-                    listConnectionTo.Items.Add(station.Name);
+                    try
+                    {
+                        listConnectionTo.Items.Add(station.Name);
+                    }
+                    catch(Exception)
+                    {
+                        MessageBox.Show("Bitte Gültige Station eingeben!");
+                        txtConnectionTo.Text = "";
+                    }
                 }
             }
         }
@@ -146,7 +162,15 @@ namespace Nevins_SBB_App
                 lblError2.Hide();
                 foreach (var station in sta.StationList)
                 {
-                    listPlaceFrom.Items.Add(station.Name);
+                    try
+                    {
+                        listPlaceFrom.Items.Add(station.Name);
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Bitte Gültige Station eingeben!");
+                        txtConnectionTo.Text = "";
+                    }
                 }
             }
         }

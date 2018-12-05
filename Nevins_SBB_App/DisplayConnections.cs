@@ -24,9 +24,9 @@ namespace Nevins_SBB_App
             {
                 connections = transport.GetConnectionsByDate(from, to, date, time);
             }
-            catch(Exception ex)
+            catch(Newtonsoft.Json.JsonSerializationException)
             {
-                MessageBox.Show(Convert.ToString(ex));
+                MessageBox.Show("Es wurden keine Koordinaten zu einer angegebenen Staion gefunden!\n Bitt andere Station eingeben.");
                 connections = null;
             }
             InitializeComponent();

@@ -54,5 +54,11 @@ namespace Nevins_SBB_App
             gridView.AutoSize = true;
             gridView.DataSource = bindingSource;
         }
+
+        private void gridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            string location = $"maps/dir/{txtconnectionfrom.Text}/{txtconnectionto.Text}";
+            System.Diagnostics.Process.Start($"http://google.com/{location}/");
+        }
     }
 }

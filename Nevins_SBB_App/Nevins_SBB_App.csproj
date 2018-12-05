@@ -101,12 +101,6 @@
     <Compile Include="DisplayConnections.Designer.cs">
       <DependentUpon>DisplayConnections.cs</DependentUpon>
     </Compile>
-    <Compile Include="GoogleMaps.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GoogleMaps.Designer.cs">
-      <DependentUpon>GoogleMaps.cs</DependentUpon>
-    </Compile>
     <Compile Include="SBBApp.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -120,9 +114,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DisplayConnections.resx">
       <DependentUpon>DisplayConnections.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GoogleMaps.resx">
-      <DependentUpon>GoogleMaps.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SBBApp.resx">
       <DependentUpon>SBBApp.cs</DependentUpon>

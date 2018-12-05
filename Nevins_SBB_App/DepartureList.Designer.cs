@@ -32,6 +32,8 @@
             this.gridView = new System.Windows.Forms.DataGridView();
             this.lbllistfrom = new System.Windows.Forms.Label();
             this.txtlistfrom = new System.Windows.Forms.RichTextBox();
+            this.bntCancel = new System.Windows.Forms.Button();
+            this.lblInfo = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -49,8 +51,9 @@
             this.gridView.ReadOnly = true;
             this.gridView.RowTemplate.Height = 33;
             this.gridView.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.gridView.Size = new System.Drawing.Size(1276, 660);
+            this.gridView.Size = new System.Drawing.Size(1260, 703);
             this.gridView.TabIndex = 1;
+            this.gridView.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridView_CellContentDoubleClick);
             // 
             // lbllistfrom
             // 
@@ -71,11 +74,33 @@
             this.txtlistfrom.TabIndex = 3;
             this.txtlistfrom.Text = "";
             // 
+            // bntCancel
+            // 
+            this.bntCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.bntCancel.Location = new System.Drawing.Point(1018, 797);
+            this.bntCancel.Name = "bntCancel";
+            this.bntCancel.Size = new System.Drawing.Size(254, 56);
+            this.bntCancel.TabIndex = 4;
+            this.bntCancel.Text = "Abbrechen";
+            this.bntCancel.UseVisualStyleBackColor = true;
+            // 
+            // lblInfo
+            // 
+            this.lblInfo.AutoSize = true;
+            this.lblInfo.Location = new System.Drawing.Point(7, 813);
+            this.lblInfo.Name = "lblInfo";
+            this.lblInfo.Size = new System.Drawing.Size(532, 25);
+            this.lblInfo.TabIndex = 10;
+            this.lblInfo.Text = "*Doppelklick auf eine Zeile um Routenplaner zu öffnen";
+            // 
             // DepartureList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1304, 760);
+            this.CancelButton = this.bntCancel;
+            this.ClientSize = new System.Drawing.Size(1288, 875);
+            this.Controls.Add(this.lblInfo);
+            this.Controls.Add(this.bntCancel);
             this.Controls.Add(this.txtlistfrom);
             this.Controls.Add(this.lbllistfrom);
             this.Controls.Add(this.gridView);
@@ -94,5 +119,7 @@
         private System.Windows.Forms.DataGridView gridView;
         private System.Windows.Forms.Label lbllistfrom;
         private System.Windows.Forms.RichTextBox txtlistfrom;
+        private System.Windows.Forms.Button bntCancel;
+        private System.Windows.Forms.Label lblInfo;
     }
 }

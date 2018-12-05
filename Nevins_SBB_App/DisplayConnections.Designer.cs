@@ -35,6 +35,8 @@
             this.lbllistfrom = new System.Windows.Forms.Label();
             this.txtconnectionto = new System.Windows.Forms.RichTextBox();
             this.lblconnectionto = new System.Windows.Forms.Label();
+            this.bntCancel = new System.Windows.Forms.Button();
+            this.lblInfo = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -48,8 +50,9 @@
             this.gridView.Name = "gridView";
             this.gridView.ReadOnly = true;
             this.gridView.RowTemplate.Height = 33;
-            this.gridView.Size = new System.Drawing.Size(1318, 618);
+            this.gridView.Size = new System.Drawing.Size(1318, 718);
             this.gridView.TabIndex = 0;
+            this.gridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridView_CellDoubleClick);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -97,11 +100,33 @@
             this.lblconnectionto.TabIndex = 7;
             this.lblconnectionto.Text = "Nach:";
             // 
+            // bntCancel
+            // 
+            this.bntCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.bntCancel.Location = new System.Drawing.Point(1076, 845);
+            this.bntCancel.Name = "bntCancel";
+            this.bntCancel.Size = new System.Drawing.Size(254, 56);
+            this.bntCancel.TabIndex = 8;
+            this.bntCancel.Text = "Abbrechen";
+            this.bntCancel.UseVisualStyleBackColor = true;
+            // 
+            // lblInfo
+            // 
+            this.lblInfo.AutoSize = true;
+            this.lblInfo.Location = new System.Drawing.Point(7, 861);
+            this.lblInfo.Name = "lblInfo";
+            this.lblInfo.Size = new System.Drawing.Size(532, 25);
+            this.lblInfo.TabIndex = 9;
+            this.lblInfo.Text = "*Doppelklick auf eine Zeile um Routenplaner zu öffnen";
+            // 
             // DisplayConnections
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1340, 736);
+            this.CancelButton = this.bntCancel;
+            this.ClientSize = new System.Drawing.Size(1340, 913);
+            this.Controls.Add(this.lblInfo);
+            this.Controls.Add(this.bntCancel);
             this.Controls.Add(this.lblconnectionto);
             this.Controls.Add(this.txtconnectionto);
             this.Controls.Add(this.txtconnectionfrom);
@@ -125,5 +150,7 @@
         private System.Windows.Forms.Label lbllistfrom;
         private System.Windows.Forms.RichTextBox txtconnectionto;
         private System.Windows.Forms.Label lblconnectionto;
+        private System.Windows.Forms.Button bntCancel;
+        private System.Windows.Forms.Label lblInfo;
     }
 }

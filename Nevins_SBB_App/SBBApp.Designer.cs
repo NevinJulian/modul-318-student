@@ -102,7 +102,6 @@
             this.bntGoogleMaps.TabIndex = 15;
             this.bntGoogleMaps.Text = "Google Maps";
             this.bntGoogleMaps.UseVisualStyleBackColor = true;
-            this.bntGoogleMaps.Click += new System.EventHandler(this.bntGoogleMaps_Click);
             // 
             // listPlaceFrom
             // 

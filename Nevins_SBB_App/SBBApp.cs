@@ -28,14 +28,20 @@ namespace Nevins_SBB_App
 
         private void btnsearchconnection_Click(object sender, EventArgs e)
         {
-            string to = txtConnectionTo.Text;
-            string from = txtConnectionFrom.Text;
-            var departDate = dateTimePicker.Value;
-            string formattedDate = departDate.Year + "-" + departDate.Month + "-" + departDate.Day;
-            string time = txtTime.Text;
-            DisplayConnections ausgabe_Verbindung = new DisplayConnections(to, from, formattedDate, time);
-            ausgabe_Verbindung.ShowDialog();
+            try
+            {
+                string to = txtConnectionTo.Text;
+                string from = txtConnectionFrom.Text;
+                var departDate = dateTimePicker.Value;
+                string formattedDate = departDate.Year + "-" + departDate.Month + "-" + departDate.Day;
+                string time = txtTime.Text;
+                DisplayConnections ausgabe_Verbindung = new DisplayConnections(to, from, formattedDate, time);
+                ausgabe_Verbindung.ShowDialog();
+            }
+            catch
+            {
 
+            }
         }
 
         private void SBBApp_Shown(object sender, EventArgs e)
@@ -56,12 +62,6 @@ namespace Nevins_SBB_App
         {
             DepartureList abfahrtsliste_Ausgabe = new DepartureList(txtPlaceFrom.Text);
             abfahrtsliste_Ausgabe.ShowDialog();
-        }
-
-        private void bntGoogleMaps_Click(object sender, EventArgs e)
-        {
-            GoogleMaps gm = new GoogleMaps(txtPlaceFrom.Text);
-            gm.Show();
         }
 
         private void txtconnectionfrom_TextChanged(object sender, EventArgs e)

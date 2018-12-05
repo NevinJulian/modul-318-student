@@ -46,5 +46,11 @@ namespace Nevins_SBB_App
             gridView.DataSource = bindingSource;
             txtlistfrom.Text = stationBoard.Station.Name;
         }
+
+        private void gridView_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            string location = $"maps/dir/{txtlistfrom.Text}/{gridView.CurrentRow.Cells[2].Value.ToString()}";
+            System.Diagnostics.Process.Start($"http://google.com/{location}/");
+        }
     }
 }
